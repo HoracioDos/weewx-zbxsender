@@ -1,0 +1,474 @@
+zabbix_export:
+  version: '6.0'
+  date: '2022-07-01T19:25:27Z'
+  groups:
+    -
+      uuid: 24c226b6701a4bbba9a4a6125a25b7a0
+      name: Templates/Extras
+  templates:
+    -
+      uuid: ccfbd006215040ddaaa6df65cbb58cff
+      template: 'Template App Weewx WS3080'
+      name: 'Template App Weewx WS3080'
+      groups:
+        -
+          name: Templates/Extras
+      items:
+        -
+          uuid: 9b4625399c8641bda5ca441b6ddc01b0
+          name: 'weewx JSON'
+          type: TRAP
+          key: 'custom.weewx[json]'
+          delay: '0'
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: 240ca51c31ed4784bf85373b85265004
+          name: 'Weewx Service Status'
+          key: 'proc.num[,,,"^.*weewxd.*$"]'
+          tags:
+            -
+              tag: Application
+              value: weewx
+          triggers:
+            -
+              uuid: 20af90fddabc4b6bb27784f02c5f3e62
+              expression: 'last(/Template App Weewx WS3080/proc.num[,,,"^.*weewxd.*$"],#3)<1'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'last(/Template App Weewx WS3080/proc.num[,,,"^.*weewxd.*$"],#3)>=1'
+              name: 'WeeWx Service is not running'
+              priority: HIGH
+        -
+          uuid: eb69961015d14e38a4bd51e32c437cd0
+          name: altimeter
+          type: TRAP
+          key: weewx_altimeter
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: b74d59c7424b4e14afedb01cb08871bb
+          name: appTemp
+          type: TRAP
+          key: weewx_appTemp
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: db2a3a56ed79442a8823bacc52ba8a28
+          name: barometer
+          type: TRAP
+          key: weewx_barometer
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 93709293ef5641799e0f6c23408ca7dd
+          name: beaufort
+          type: TRAP
+          key: weewx_beaufort
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: b64b72fc862d4729891858467ae40b10
+          name: cloudbase
+          type: TRAP
+          key: weewx_cloudbase
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: bead16bd917548cba9f6d5d7c66e4f8a
+          name: dateTime
+          type: TRAP
+          key: weewx_dateTime
+          delay: '0'
+          history: 7d
+          units: unixtime
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 6e2df1a16f324835a753221381b0b067
+          name: delay
+          type: TRAP
+          key: weewx_delay
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: c5915c2f8fd84e1592b7c336e7a05458
+          name: dewpoint
+          type: TRAP
+          key: weewx_dewpoint
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 0f780ea2c9254368bc71494b5a7df643
+          name: ET
+          type: TRAP
+          key: weewx_ET
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: d59371f11f6d4f98ba23b5c2ab0c8f68
+          name: heatindex
+          type: TRAP
+          key: weewx_heatindex
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: e92937aca554482a84ab0fc7fdbac63d
+          name: humidex
+          type: TRAP
+          key: weewx_humidex
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 182ac99841ee43f6a10bef23ee95fc7f
+          name: inDewpoint
+          type: TRAP
+          key: weewx_inDewpoint
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: b5199055d6b245028a8afe7c0d45f61f
+          name: inHumidity
+          type: TRAP
+          key: weewx_inHumidity
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: dc2b0d10abef44fe84e139977c410a21
+          name: inTemp
+          type: TRAP
+          key: weewx_inTemp
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 3f8b6f09f3444a9eb7f40124c6aa4f73
+          name: Interval
+          type: TRAP
+          key: weewx_interval
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 739791ff38e14fb281eb60e1b8b6d974
+          name: maxSolarRad
+          type: TRAP
+          key: weewx_maxSolarRad
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 88fea83e8d384ae392e4d862b85dd66d
+          name: outHumidity
+          type: TRAP
+          key: weewx_outHumidity
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: b82e665ed87a4057bccb726d7ab844d1
+          name: outTemp
+          type: TRAP
+          key: weewx_outTemp
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: faddc21c42464ef1926ef584b7db22d2
+          name: outTempBatteryStatus
+          type: TRAP
+          key: weewx_outTempBatteryStatus
+          delay: '0'
+          history: 7d
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: e8b1146863c54495944230e7cef770e7
+          name: pressure
+          type: TRAP
+          key: weewx_pressure
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: ffb5f6a2932b44e09871377686b77334
+          name: prt
+          type: TRAP
+          key: weewx_ptr
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 7b1ad40c1b9a46ceb5afc4a6d1b2960d
+          name: radiation
+          type: TRAP
+          key: weewx_radiation
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 7c965440943d4e7894d4c1b789586693
+          name: rain
+          type: TRAP
+          key: weewx_rain
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+          triggers:
+            -
+              uuid: ef861e9b80e247189b262a80a9db57d1
+              expression: 'last(/Template App Weewx WS3080/weewx_rain)>0'
+              name: 'It is rainning {ITEM.VALUE}'
+              priority: INFO
+              manual_close: 'YES'
+        -
+          uuid: 4ef9bf129ace4d4bad58601740104a2b
+          name: rainRate
+          type: TRAP
+          key: weewx_rainRate
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 9e2eeaeedf914b48a861c224472cad75
+          name: rainTotal
+          type: TRAP
+          key: weewx_rainTotal
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: ad9c7d8bccf1479a867fc9dda1f22c18
+          name: rxCheckPercent
+          type: TRAP
+          key: weewx_rxCheckPercent
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: cb3d99bc263b43bcacf057c73c3678b9
+          name: status
+          type: TRAP
+          key: weewx_status
+          delay: '0'
+          history: 7d
+          tags:
+            -
+              tag: Application
+              value: weewx
+          triggers:
+            -
+              uuid: adeedc3a2c3e49febfdcab020bd740ac
+              expression: 'nodata(/Template App Weewx WS3080/weewx_status,5m,"strict")=1'
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: 'nodata(/Template App Weewx WS3080/weewx_status,5s)=0'
+              name: 'No data recieved from WeeWx'
+              priority: WARNING
+        -
+          uuid: cfd446307223495bbfee7f273bc874ce
+          name: usUnits
+          type: TRAP
+          key: weewx_usUnits
+          delay: '0'
+          history: 7d
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 2d290d774b824af0b9c6eccfba0d69e4
+          name: UV
+          type: TRAP
+          key: weewx_UV
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 93f4a43e32f7420186e3182566e8d50d
+          name: windchill
+          type: TRAP
+          key: weewx_windchill
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: a7720cd881de4ec8bcfeeedc7f215fa8
+          name: windDir
+          type: TRAP
+          key: weewx_windDir
+          delay: '0'
+          history: 7d
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: e902f0fb24534f90810e0e6e1c8fdcfa
+          name: windGust
+          type: TRAP
+          key: weewx_windGust
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 996925ae1ef94ab5ac486b2990ea9aad
+          name: windGustDir
+          type: TRAP
+          key: weewx_windGustDir
+          delay: '0'
+          history: 7d
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 3a3a00e200dd4219b4f7146caeba29c4
+          name: windRun
+          type: TRAP
+          key: weewx_windrun
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
+        -
+          uuid: 27b2d1de0b744a948df7d6994f4b654a
+          name: windSpeed
+          type: TRAP
+          key: weewx_windSpeed
+          delay: '0'
+          history: 7d
+          value_type: FLOAT
+          tags:
+            -
+              tag: Application
+              value: weewx
