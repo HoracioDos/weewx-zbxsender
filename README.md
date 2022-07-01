@@ -1,7 +1,7 @@
 # weewx-zbxsender
 A WeeWX service to send loop or record data to zabbix using zabbix_sender
 
-![dashboard](https://raw.githubusercontent.com/HoracioDos/weewx-zabbixsender/main/images/dashboard.png)
+![dashboard](https://raw.githubusercontent.com/HoracioDos/weewx-zbxsender/main/images/dashboard.png)
 ### Dependencies
 This plug-in requires `zabbix_sender` command installed in Weewx server.
 ### Build the package, or get it from [here](https://github.com/HoracioDos/weewx-zbxsender/releases/latest)
